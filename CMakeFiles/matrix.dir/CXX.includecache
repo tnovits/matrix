@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/travis/build/tnovits/matrix/main.cpp
+matrix.h
+/home/travis/build/tnovits/matrix/matrix.h
+iostream
+-
+
+/home/travis/build/tnovits/matrix/matrix.h
+map
+-
+memory
+-
+

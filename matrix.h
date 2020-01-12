@@ -2,10 +2,9 @@
 
 #include <map>
 #include <memory>
+#include <array>
 
-
-class frend;
-template< typename T, const T defaultValue>
+template< typename T, const T defaultValue, const size_t dimensionValue = 2>
 class Matrix
 {
 private:
@@ -13,43 +12,40 @@ private:
 
 private:
     using element_type = T;
+    using index_type = std::array<size_t, dimensionValue>;
     using key_type = Index;
     using matrix_type = std::map<key_type, element_type>;
 
 private:
     struct Index
     {
-        int i = -1;
-        int j = -1;
+        index_type m_Index = {};
 
         bool operator<(const Index& index) const
         {
-            if( i == index.i )
-            {
-                return j < index.j;
-            }
-            else
-            {
-                return i < index.i;
-            }
+            return  m_Index < index.m_Index;
         }
     };
 
     struct Record
     {
         matrix_type& m_Matrix;
-        key_type index;
+        key_type m_Key = {};
         element_type value = defaultValue;
+        size_t count = 0;
 
-        Record& operator[](int j)
+        auto& operator[](size_t index)
         {
-            index.j = j;
-
-            auto element = m_Matrix.find(index);
-
-            if( element != m_Matrix.end() )
+            if( count < dimensionValue )
             {
-                value = element->second;
+                m_Key.m_Index[count++] = index;
+
+                auto element = m_Matrix.find( m_Key );
+
+                if( element != m_Matrix.end() )
+                {
+                    value = element->second;
+                }
             }
 
             return *this;
@@ -64,14 +60,12 @@ private:
         {
             if( newElement == defaultValue )
             {
-                m_Matrix.erase(index);
-                index.i = -1;
-                index.j = -1;
+                m_Matrix.erase(m_Key);
                 value = defaultValue;
             }
             else
             {
-                m_Matrix[index] = newElement;
+                m_Matrix[m_Key] = newElement;
             }
 
             value = newElement;
@@ -83,14 +77,12 @@ private:
         {
             if( newRecord.value == defaultValue )
             {
-                m_Matrix.erase(index);
-                index.i = -1;
-                index.j = -1;
+                m_Matrix.erase(m_Key);
                 value = defaultValue;
             }
             else
             {
-                m_Matrix[index] = newRecord.value;
+                m_Matrix[m_Key] = newRecord.value;
             }
 
             value = newRecord.value;
@@ -113,9 +105,10 @@ public:
         return m_Matrix.size();
     }
 
-    Record operator[](int i)
+    Record operator[](size_t index)
     {
-        auto record = Record{m_Matrix, i};
+        auto record = Record{m_Matrix};
+        record.m_Key.m_Index[record.count++] = index;
 
         return record;
     }
@@ -130,9 +123,14 @@ public:
         return m_Matrix.end();
     }
 
-    friend std::ostream& operator<< (std::ostream& out, const std::pair< const key_type, element_type >& point)
+    friend std::ostream& operator<< (std::ostream& out, const typename matrix_type::value_type & point)
     {
-        out << point.first.i << " " << point.first.j << "   " << point.second;
+        for( const auto& element : point.first.m_Index)
+        {
+            out << element << " ";
+        }
+
+        out << point.second;
 
         return out;
     }
@@ -140,4 +138,5 @@ public:
 private:
     matrix_type m_Matrix;
 };
+
 

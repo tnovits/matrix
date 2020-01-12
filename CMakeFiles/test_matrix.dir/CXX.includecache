@@ -11,6 +11,8 @@ map
 -
 memory
 -
+array
+-
 
 /home/travis/build/tnovits/matrix/test_matrix.cpp
 matrix.h

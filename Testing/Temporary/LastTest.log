@@ -1,21 +1,21 @@
-Start testing: Jan 08 18:01 UTC
+Start testing: Jan 12 05:29 UTC
 ----------------------------------------------------------
 1/1 Testing: matrix_tests
 1/1 Test: matrix_tests
 Command: "/home/travis/build/tnovits/matrix/test_matrix"
 Directory: /home/travis/build/tnovits/matrix
-"matrix_tests" start time: Jan 08 18:01 UTC
+"matrix_tests" start time: Jan 12 05:29 UTC
 Output:
 ----------------------------------------------------------
-Running 1 test case...
+Running 2 test cases...
 
 *** No errors detected
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"matrix_tests" end time: Jan 08 18:01 UTC
+"matrix_tests" end time: Jan 12 05:29 UTC
 "matrix_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jan 08 18:01 UTC
+End testing: Jan 12 05:29 UTC

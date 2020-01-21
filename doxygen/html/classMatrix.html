@@ -99,10 +99,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab0993363330a37597a97a9e6297b8256"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eae673a7ec013922007b09cd499b618"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatrix.html#a0eae673a7ec013922007b09cd499b618">~Matrix</a> ()=default</td></tr>
 <tr class="separator:a0eae673a7ec013922007b09cd499b618"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3803a6a04e9d5fc5f47cc3915794a84d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatrix.html#a3803a6a04e9d5fc5f47cc3915794a84d">size</a> () const </td></tr>
-<tr class="separator:a3803a6a04e9d5fc5f47cc3915794a84d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37be7c2f7883ca8a0f5491f28e6d4fea"><td class="memItemLeft" align="right" valign="top">Record&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatrix.html#a37be7c2f7883ca8a0f5491f28e6d4fea">operator[]</a> (size_t index)</td></tr>
-<tr class="separator:a37be7c2f7883ca8a0f5491f28e6d4fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a395ec87ea3abfe81397c1ec187482a73"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatrix.html#a395ec87ea3abfe81397c1ec187482a73">size</a> () const </td></tr>
+<tr class="separator:a395ec87ea3abfe81397c1ec187482a73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e15aa1a38ce7fd61e84690eb6147e63"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatrix.html#a8e15aa1a38ce7fd61e84690eb6147e63">operator[]</a> (size_t index)</td></tr>
+<tr class="separator:a8e15aa1a38ce7fd61e84690eb6147e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14a64d021b4143f94631d1390bb595e4"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatrix.html#a14a64d021b4143f94631d1390bb595e4">begin</a> ()</td></tr>
 <tr class="separator:a14a64d021b4143f94631d1390bb595e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbbcd96f048f79441e32eebeed6234fc"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatrix.html#afbbcd96f048f79441e32eebeed6234fc">end</a> ()</td></tr>
@@ -110,6 +110,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
+<tr class="memitem:a307693014f5f2acd72632899a041c950"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatrix.html#a307693014f5f2acd72632899a041c950">operator&lt;&lt;</a> (std::ostream &amp;out, Record &amp;point)</td></tr>
+<tr class="separator:a307693014f5f2acd72632899a041c950"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69138ee0daeee269a5b6c81a08bd2e0e"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatrix.html#a69138ee0daeee269a5b6c81a08bd2e0e">operator&lt;&lt;</a> (std::ostream &amp;out, const typename matrix_type::value_type &amp;point)</td></tr>
 <tr class="separator:a69138ee0daeee269a5b6c81a08bd2e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -215,7 +217,7 @@ template&lt;typename T , const T defaultValue, const size_t dimensionValue = 2&g
 
 </div>
 </div>
-<a class="anchor" id="a37be7c2f7883ca8a0f5491f28e6d4fea"></a>
+<a class="anchor" id="a8e15aa1a38ce7fd61e84690eb6147e63"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -225,7 +227,7 @@ template&lt;typename T , const T defaultValue, const size_t dimensionValue = 2&g
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Record <a class="el" href="classMatrix.html">Matrix</a>&lt; T, defaultValue, dimensionValue &gt;::operator[] </td>
+          <td class="memname">auto <a class="el" href="classMatrix.html">Matrix</a>&lt; T, defaultValue, dimensionValue &gt;::operator[] </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
@@ -241,7 +243,7 @@ template&lt;typename T , const T defaultValue, const size_t dimensionValue = 2&g
 
 </div>
 </div>
-<a class="anchor" id="a3803a6a04e9d5fc5f47cc3915794a84d"></a>
+<a class="anchor" id="a395ec87ea3abfe81397c1ec187482a73"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -251,7 +253,7 @@ template&lt;typename T , const T defaultValue, const size_t dimensionValue = 2&g
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="classMatrix.html">Matrix</a>&lt; T, defaultValue, dimensionValue &gt;::size </td>
+          <td class="memname">auto <a class="el" href="classMatrix.html">Matrix</a>&lt; T, defaultValue, dimensionValue &gt;::size </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -267,6 +269,42 @@ template&lt;typename T , const T defaultValue, const size_t dimensionValue = 2&g
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a307693014f5f2acd72632899a041c950"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , const T defaultValue, const size_t dimensionValue = 2&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Record &amp;&#160;</td>
+          <td class="paramname"><em>point</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a69138ee0daeee269a5b6c81a08bd2e0e"></a>
 <div class="memitem">
 <div class="memproto">

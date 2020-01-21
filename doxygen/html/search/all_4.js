@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['size',['size',['../classMatrix.html#a3803a6a04e9d5fc5f47cc3915794a84d',1,'Matrix']]]
+  ['size',['size',['../classMatrix.html#a395ec87ea3abfe81397c1ec187482a73',1,'Matrix']]]
 ];

@@ -53,7 +53,7 @@ BOOST_AUTO_TEST_CASE( matrix3d_test )
     BOOST_CHECK(matrix[100][100][100]== 314);
     BOOST_CHECK(matrix.size() == 1);
 
-    matrix[100][100][100]= -1;
+    matrix[100][100][100] = -1;
     BOOST_CHECK(matrix[100][100][100] == -1);
     BOOST_CHECK(matrix.size() == 0);
 

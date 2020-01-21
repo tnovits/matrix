@@ -27,19 +27,19 @@ private:
         }
     };
 
+    template<const size_t count, typename = std::enable_if_t<count < dimensionValue>>
     struct Record
     {
         matrix_type& m_Matrix;
         key_type m_Key = {};
         element_type value = defaultValue;
-        size_t count = 0;
 
-        auto& operator[](size_t index)
+        auto operator[](size_t index)
         {
-            if( count < dimensionValue )
-            {
-                m_Key.m_Index[count++] = index;
+            m_Key.m_Index[count+1] = index;
 
+            if( count+1 == dimensionValue-1)
+            {
                 auto element = m_Matrix.find( m_Key );
 
                 if( element != m_Matrix.end() )
@@ -48,7 +48,7 @@ private:
                 }
             }
 
-            return *this;
+            return Record<count+1>{m_Matrix, m_Key, value};
         }
 
         operator element_type()
@@ -56,37 +56,54 @@ private:
             return value;
         }
 
-        Record& operator= (const element_type& newElement)
+        auto& operator= (const element_type& newElement)
         {
-            if( newElement == defaultValue )
+            // for c++ 17
+ //           if constexpr (count+1 == dimensionValue)
             {
-                m_Matrix.erase(m_Key);
-                value = defaultValue;
-            }
-            else
-            {
-                m_Matrix[m_Key] = newElement;
-            }
+                if( newElement == defaultValue )
+                {
+                    m_Matrix.erase( m_Key );
+                    value = defaultValue;
+                }
+                else
+                {
+                    m_Matrix[ m_Key ] = newElement;
+                }
 
-            value = newElement;
+                value = newElement;
 
-            return *this;
+
+                return *this;
+            }
+//            else
+//            {
+//                return 0;
+//            }
         }
 
-        Record& operator= (const Record& newRecord)
+        auto& operator= (const Record& newRecord)
         {
-            if( newRecord.value == defaultValue )
+            // for c++ 17
+ //           if constexpr (count+1 == dimensionValue)
             {
-                m_Matrix.erase(m_Key);
-                value = defaultValue;
-            }
-            else
-            {
-                m_Matrix[m_Key] = newRecord.value;
-            }
+                if( newRecord.value == defaultValue )
+                {
+                    m_Matrix.erase( m_Key );
+                    value = defaultValue;
+                }
+                else
+                {
+                    m_Matrix[ m_Key ] = newRecord.value;
+                }
 
-            value = newRecord.value;
-            return *this;
+                value = newRecord.value;
+                return *this;
+            }
+//            else
+//            {
+//                return 0;
+//            }
         }
 
         friend std::ostream& operator<<(std::ostream& out, Record& point)
@@ -100,17 +117,14 @@ public:
     Matrix() = default;
     virtual ~Matrix() = default;
 
-    size_t size() const
+    auto size() const
     {
         return m_Matrix.size();
     }
 
-    Record operator[](size_t index)
+    auto operator[](size_t index)
     {
-        auto record = Record{m_Matrix};
-        record.m_Key.m_Index[record.count++] = index;
-
-        return record;
+        return Record<0>{m_Matrix, index};;
     }
 
     auto begin()
